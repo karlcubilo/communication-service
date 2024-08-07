@@ -1,4 +1,4 @@
-package com.communication.communication_service;
+package com.communication;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
