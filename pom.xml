@@ -116,7 +116,7 @@
 					<execution>
 						<id>prepare-agent</id>
 						<goals>
-							<goal>prepare-agent</goal>a
+							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
 					<execution>
