@@ -3,23 +3,27 @@ package com.communication.email.controller;
 import com.communication.email.model.Email;
 import com.communication.email.service.EmailService;
 import com.communication.email.service.EmailServiceImpl;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/emails")
+@RestController
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
+@RequestMapping("/emails")
+@Validated
 public class EmailController {
 
     final EmailService emailService;
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void sendEmail(Email email) {
+    @Async
+    public void sendEmail(@RequestBody @Valid Email email) {
         emailService.sendEmail(email);
     }
 
