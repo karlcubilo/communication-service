@@ -13,7 +13,7 @@ on:
     branches: [ "wip" ]
   pull_request:
     branches: [ "wip" ]
-
+  workflow_dispatch:
 
 jobs:
   build:
