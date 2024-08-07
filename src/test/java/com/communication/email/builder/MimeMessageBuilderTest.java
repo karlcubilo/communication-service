@@ -36,4 +36,21 @@ public class MimeMessageBuilderTest extends BaseUnitTest {
 
         assertNotNull(returnMessage);
     }
+
+    @Test
+    public void build_whenParametersProvidedAndOthersProvided_returnMimeMessage() throws MessagingException {
+
+        Email email = new Email();
+        email.setFrom("test@gmail.com");
+        email.setTo(List.of("test@gmail.com"));
+        email.setSubject("subject");
+        email.setText("Text");
+        email.setCc(List.of("cc"));
+        email.setBcc(List.of("bcc"));
+        email.setIsHtml(true);
+
+        MimeMessage returnMessage = mimeMessageBuilder.build(mimeMessage,email);
+
+        assertNotNull(returnMessage);
+    }
 }
