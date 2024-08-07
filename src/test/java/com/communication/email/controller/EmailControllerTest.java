@@ -104,4 +104,20 @@ public class EmailControllerTest extends BaseUnitTest {
                 ).andExpect(MockMvcResultMatchers.status().isBadRequest())
                 .andReturn();
     }
+
+    @Test
+    public void sendEmail_whenValid_returnAccepted() throws Exception {
+
+        Email email = new Email();
+        email.setFrom("123");
+        email.setTo(List.of("123"));
+        email.setText("!23");
+        email.setSubject("123");
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/emails")
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsBytes(email))
+                ).andExpect(MockMvcResultMatchers.status().isAccepted())
+                .andReturn();
+    }
 }
