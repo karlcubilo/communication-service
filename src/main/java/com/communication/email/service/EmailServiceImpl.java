@@ -25,9 +25,8 @@ public class EmailServiceImpl implements EmailService{
 
     public void sendEmail(Email email)  {
 
-        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-
         try {
+            MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             javaMailSender.send(mimeMessageBuilder.build(mimeMessage,email));
         } catch(Exception e) {
             log.error("Cannot send email for request {}", email.toString(), e);

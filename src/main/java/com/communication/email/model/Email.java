@@ -13,15 +13,15 @@ import java.util.List;
 @ToString
 public class Email {
 
-    @NotBlank
+    @NotBlank(message = "From is required")
     String from;
-    @NotNull
+    @NotNull(message = "To is required")
     List<String> to;
     List<String> cc;
     List<String> bcc;
-    @NotNull
+    @NotNull(message = "Subject is required")
     String subject;
-    @NotBlank
+    @NotBlank(message = "Text is required")
     String text;
     Boolean isHtml;
 }

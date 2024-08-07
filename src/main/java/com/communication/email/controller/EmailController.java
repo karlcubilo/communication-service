@@ -2,7 +2,6 @@ package com.communication.email.controller;
 
 import com.communication.email.model.Email;
 import com.communication.email.service.EmailService;
-import com.communication.email.service.EmailServiceImpl;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
